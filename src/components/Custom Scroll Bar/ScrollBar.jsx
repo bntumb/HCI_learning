@@ -25,7 +25,7 @@ const ScrollBar=()=>{
         const rect = scrollbarRef.current.getBoundingClientRect();
         const borderPosition = mousePosition.clientX - rect.right;
         borderRight.current.style.cursor ="ew-resize"
-         setPosition(-borderPosition)
+        if (borderPosition <=0 && borderPosition >=-rect.width+MIN_WIDTH) setPosition(-borderPosition)
          console.log("x relative to scrollbar:", borderPosition);
     }
 
