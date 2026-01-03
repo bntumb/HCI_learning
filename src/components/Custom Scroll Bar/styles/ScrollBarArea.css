@@ -1,6 +1,6 @@
 .container{
     background-color: red;
-    width: 100%;
+    width: 50%;
     height: 70vh;
     display: flex;
     position: relative;
@@ -35,7 +35,7 @@
     z-index: 1;
     height: 100%;
     cursor: ew-resize;
-    opacity: 0;
+    border-right: 2px solid blue
     
 }
 
