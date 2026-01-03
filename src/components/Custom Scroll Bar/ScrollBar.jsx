@@ -1,9 +1,13 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useReducer } from "react";
 
 
 const ScrollBar=()=>{
+
+    const MIN_WIDTH = 200;
     
     const scrollbarRef = useRef(null);
+    const borderRight = useRef(null);
+    const scroller = useRef(null)
     const [position, setPosition] = useState(0);
     const [resize, setResize] = useState(false);
 
@@ -20,7 +24,8 @@ const ScrollBar=()=>{
     const handleMouseMove = (mousePosition)=>{
         const rect = scrollbarRef.current.getBoundingClientRect();
         const borderPosition = mousePosition.clientX - rect.right;
-        if(borderPosition<=0 && borderPosition >= rect.width*-1) setPosition(-borderPosition)
+        borderRight.current.style.cursor ="ew-resize"
+         setPosition(-borderPosition)
          console.log("x relative to scrollbar:", borderPosition);
     }
 
@@ -39,7 +44,8 @@ const ScrollBar=()=>{
     return(
         <div  ref={scrollbarRef} className="scrollbar">
             <div className="fake-border">
-                <div onMouseDown={handleMouseDown} className="border"style={{right:position}} ></div>
+                <div   ref={borderRight} onMouseDown={handleMouseDown} className="border"style={{width:position+2}} ></div>
+                <div   ref={scroller} className="scroller"></div>
             </div>
         </div>
     )
