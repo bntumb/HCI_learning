@@ -28,7 +28,6 @@
     flex-direction: row-reverse;
     gap:1px
 
-
 }
 
 .border{
@@ -40,10 +39,10 @@
     border-right: 2px solid white;
     flex-shrink: 0;        /* prevent shrinking */
     margin-left: auto;
+    opacity: 0;
 
-    transition: all 1.2 ease-in-out;
 }
-
+ 
 .scroller{
     flex: 1;
     background-color: gray;
@@ -51,8 +50,3 @@
     cursor: grab;
 }
 
-
-*{
-        transition: all 1.2 ease-in-out;
-
-}
