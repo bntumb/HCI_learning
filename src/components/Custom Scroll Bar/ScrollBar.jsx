@@ -1,6 +1,9 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useContext } from "react";
+import ContainerContext from "./store/container-context";
 
 const ScrollBar = () => {
+
+    const containerSynchro = useContext(ContainerContext) 
     const MIN_WIDTH_PERCENTAGE = 10/100;
     
     const scrollbarRef = useRef(null);
@@ -119,6 +122,7 @@ const ScrollBar = () => {
 
         const scrollerTabPercentage = Math.round((scrollerTabWidth/currentWidth)*100 )
         setZoomedContainerWidth(scrollerTabPercentage)
+        containerSynchro.updateWidth(scrollerTabPercentage)
     }
 
     useEffect(() => {
