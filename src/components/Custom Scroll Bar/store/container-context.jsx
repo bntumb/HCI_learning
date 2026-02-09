@@ -8,7 +8,7 @@ const ContainerContext = createContext({
 })
 
 
-function ContainerContextProvider(props){
+export function ContainerContextProvider(props){
 
     const [ContentWidth, setContentWidth] = useState([])
 
@@ -28,3 +28,5 @@ function ContainerContextProvider(props){
 
     </ContainerContext.Provider>
 }
+
+export default ContainerContext;
