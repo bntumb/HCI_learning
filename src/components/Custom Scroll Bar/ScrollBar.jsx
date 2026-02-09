@@ -89,9 +89,11 @@ const ScrollBar = () => {
             if (borderRight.current) {
                 borderRight.current.style.cursor = "ew-resize";
             }
-
             if (scrollerTab.width >= rect.width * MIN_WIDTH_PERCENTAGE) {
-                setScrollerPosition({...scrollerPosition, positionRight : -borderRightPosition})
+                setScrollerPosition(prev => ({
+                ...prev,
+                positionRight: -borderRightPosition,
+                }));
             }
         }
 
@@ -100,7 +102,8 @@ const ScrollBar = () => {
                 borderLeft.current.style.cursor = "ew-resize";
             }
             if (scrollerTab.width >= rect.width * MIN_WIDTH_PERCENTAGE) {
-                setScrollerPosition({...scrollerPosition, positionLeft : borderLeftPosition})
+                setScrollerPosition(prev => ({ ...prev , positionLeft : borderLeftPosition
+                }))
             }
         }
 
@@ -116,8 +119,6 @@ const ScrollBar = () => {
 
         const scrollerTabPercentage = Math.round((scrollerTabWidth/currentWidth)*100 )
         setZoomedContainerWidth(scrollerTabPercentage)
-
-        console.log(scrollerTabPercentage)
     }
 
     useEffect(() => {
