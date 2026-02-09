@@ -15,7 +15,8 @@ const ScrollBar = () => {
     const [grabbing, setGrabbing] = useState(false);
     const currentBorder = useRef('');
     const [scrollerPosition, setScrollerPosition] = useState({positionLeft:0, positionRight:0})
-
+    const [zoomedContainerWidth, setZoomedContainerWidth] = useState(0)
+ 
     const handleResizingWithMouse = (clicked) => {
         setResize(true);
         currentBorder.current = clicked.currentTarget.dataset.name;
@@ -102,7 +103,22 @@ const ScrollBar = () => {
                 setScrollerPosition({...scrollerPosition, positionLeft : borderLeftPosition})
             }
         }
+
+        const currentWidth = rect.width 
+        const scrollerTabWidth =  scrollerTab.width
+                const scrollerPercentage = ((scrollerTabWidth)/100 )
+
+        StoreZoomState({currentWidth, scrollerTabWidth} )
+
     }, []); // refs are stable
+
+    const StoreZoomState =({currentWidth,  scrollerTabWidth} )=>{
+
+        const scrollerTabPercentage = Math.round((scrollerTabWidth/currentWidth)*100 )
+        setZoomedContainerWidth(scrollerTabPercentage)
+
+        console.log(scrollerTabPercentage)
+    }
 
     useEffect(() => {
         if (!resize) return;
@@ -125,6 +141,7 @@ const ScrollBar = () => {
     }, [grabbing, handleGrabbing, handleMouseUp]);
 
     return (
+        
         <div ref={scrollbarRef} className="scrollbar">
             <div className="fake-border">
                 <div data-name='borderRight' ref={borderRight} onMouseDown={handleResizingWithMouse} className="border" style={{width: scrollerPosition.positionRight + 2}}></div>
