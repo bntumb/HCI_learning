@@ -51,5 +51,18 @@
 
 .contentContainer{
     background-color: aliceblue;
-    width: 2%;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    white-space: nowrap;
+
+    
+}
+
+h1{
+    background-color: red;
 }
