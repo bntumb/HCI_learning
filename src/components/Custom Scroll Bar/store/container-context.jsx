@@ -1,9 +1,10 @@
-import { useSearchParams } from 'next/navigation'
 import {createContext, useState} from 'react'
 
 const ContainerContext = createContext({
 
-    contentWidth:0
+    contentWidth:0,
+    updateWidth: (currentWidth)=>{}
+
 
 })
 
@@ -15,11 +16,12 @@ export function ContainerContextProvider(props){
     const updateContentWidth =(currentWidth)=>{
 
         setContentWidth(currentWidth)
-
+        console.log(currentWidth)
     }
 
     const synchroniser ={
-        contentWidth:ContentWidth
+        contentWidth:ContentWidth,
+        updateWidth: updateContentWidth
     }
 
     return <ContainerContext.Provider value={synchroniser}>

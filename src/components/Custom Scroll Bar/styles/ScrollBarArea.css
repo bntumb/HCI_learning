@@ -1,6 +1,5 @@
 .container{
     background-color: red;
-    width: 50%;
     height: 70vh;
     display: flex;
     position: relative;
@@ -50,3 +49,7 @@
     cursor: grab;
 }
 
+.contentContainer{
+    background-color: aliceblue;
+    width: 2%;
+}

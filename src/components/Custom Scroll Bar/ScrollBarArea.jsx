@@ -1,12 +1,10 @@
-import React from 'react'
-import './styles/ScrollBarArea.css'
-import ScrollBar from './ScrollBar'
-function ScrollBarArea() {
+// App.js
+import { ContainerContextProvider } from "./store/container-context";
+import ScrollBarArea from "./HorizontalScrollContent"
+export default function App() {
   return (
-    <div className='container'>
-      <ScrollBar/>
-    </div>
-  )
+    <ContainerContextProvider>
+      <ScrollBarArea />
+    </ContainerContextProvider>
+  );
 }
-
-export default ScrollBarArea
