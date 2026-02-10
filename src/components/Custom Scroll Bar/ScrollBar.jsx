@@ -49,12 +49,17 @@ const ScrollBar = () => {
                 console.log(shouldUpdate.current ? 'Updating' : 'Bounds exceeded', { nextLeft, nextRight, rect   });
 
                 if (shouldUpdate.current){
+                    containerSynchro.updatePosition(nextLeft)
+
+
                     return {
                         positionLeft: nextLeft,
                         positionRight: nextRight,
                     };
                 }
                 else{
+                    containerSynchro.updatePosition(prev.positionLeft)
+
                     return {
                         positionLeft: prev.positionLeft,
                         positionRight: prev.positionRight,
