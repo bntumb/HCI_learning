@@ -11,8 +11,8 @@ const ContainerContext = createContext({
 
 export function ContainerContextProvider(props){
 
-    const [ContentWidth, setContentWidth] = useState([])
-    const [ContentPosition, setContentPosition] = useState([])
+    const [ContentWidth, setContentWidth] = useState(0)
+    const [ContentPosition, setContentPosition] = useState(0)
 
     const updateContentWidth =(currentWidth)=>{
 
