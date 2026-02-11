@@ -1,12 +1,34 @@
-import { useState, useEffect, useRef, useCallback, useContext } from "react";
+import { useState, useEffect, useRef, useCallback, useContext, useLayoutEffect } from "react";
 import ContainerContext from "./store/container-context";
 
-const ScrollBar = () => {
+const ScrollBar = ({scrollBarPercentageonMount = 20}) => {
 
     const containerSynchro = useContext(ContainerContext) 
     const MIN_WIDTH_PERCENTAGE = 10/100;
     
     const scrollbarRef = useRef(null);
+    const [ containerWidth, setContainerWidth] = useState(0);
+    const [scrollerPosition, setScrollerPosition] = useState({positionLeft:0, positionRight:0})
+
+    useLayoutEffect(() => {
+        if (!scrollbarRef.current) return;
+        const containerWidth = scrollbarRef.current.getBoundingClientRect().width;
+        const scrollbarWidthOnMount = (scrollBarPercentageonMount * containerWidth)/100
+        const intitalPositionRight = containerWidth - scrollbarWidthOnMount
+
+        console.log(containerWidth)
+        setScrollerPosition({
+            positionLeft: 0,
+            positionRight: intitalPositionRight,
+        });
+StoreZoomState({
+  currentWidth: containerWidth,
+  scrollerTabWidth: scrollbarWidthOnMount,
+});
+    setContainerWidth(containerWidth);
+    }, []);
+
+        
     const borderRight = useRef(null);
     const borderLeft = useRef(null);
     const scroller = useRef(null);
@@ -17,9 +39,8 @@ const ScrollBar = () => {
     const [resize, setResize] = useState(false);
     const [grabbing, setGrabbing] = useState(false);
     const currentBorder = useRef('');
-    const [scrollerPosition, setScrollerPosition] = useState({positionLeft:0, positionRight:0})
     const [zoomedContainerWidth, setZoomedContainerWidth] = useState(0)
- 
+
     const handleResizingWithMouse = (clicked) => {
         setResize(true);
         currentBorder.current = clicked.currentTarget.dataset.name;
@@ -108,7 +129,7 @@ const ScrollBar = () => {
         if (currentBorder.current === 'borderLeft') {
             if (borderLeft.current) {
                 borderLeft.current.style.cursor = "ew-resize";
-            }
+            } 
             if (scrollerTab.width >= rect.width * MIN_WIDTH_PERCENTAGE) {
                 setScrollerPosition(prev => ({ ...prev , positionLeft : borderLeftPosition
                 }))
