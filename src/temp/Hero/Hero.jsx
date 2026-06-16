@@ -7,5 +7,6 @@ export default function Hero() {
       <p className="subtitle-716ex3">Each named layer becomes its own reusable React component.</p>
       <button className="action-euhal4" type="button">Get started</button>
     </div>
+
   );
 }
