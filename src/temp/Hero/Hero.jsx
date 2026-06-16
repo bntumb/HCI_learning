@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 544,
     height: 332,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#ff0000',
     borderRadius: 16,
     shadowColor: '#0F172A',
     shadowOffset: { width: 0, height: 10 },
