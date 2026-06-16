@@ -8,7 +8,6 @@ export default function Hero() {
       <Pressable style={styles.action_7xryh4}>
         <Text style={styles.action_7xryh4Label}>Get started</Text>
       </Pressable>
-      <View style={styles.frame_83mx89} />
     </View>
   );
 }
@@ -18,8 +17,8 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 544,
     height: 332,
-    backgroundColor: '#ffffff',
-    borderRadius: 16,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
     shadowColor: '#0F172A',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.16,
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
   title_s4y0v2: {
     position: 'absolute',
     left: 40,
-    top: 20,
+    top: 44,
     width: 464,
     height: 44,
     color: '#0F172A',
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
   subtitle_y63e53: {
     position: 'absolute',
     left: 40,
-    top: 100,
+    top: 104,
     width: 464,
     height: 56,
     color: '#64748B',
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
   action_7xryh4: {
     position: 'absolute',
     left: 40,
-    top: 177,
+    top: 200,
     width: 140,
     height: 46,
     alignItems: 'center',
@@ -74,17 +73,5 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 15,
     fontWeight: '600',
-  },
-  frame_83mx89: {
-    position: 'absolute',
-    left: 31,
-    top: 74,
-    width: 483,
-    height: 8,
-    overflow: 'hidden',
-    backgroundColor: '#ff8ac2',
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: '#E2E8F0',
   },
 });
