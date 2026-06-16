@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 544,
     height: 332,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 24,
+    backgroundColor: '#000000',
+    borderRadius: 16,
     shadowColor: '#0F172A',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.16,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   title_s4y0v2: {
     position: 'absolute',
     left: 40,
-    top: 44,
+    top: 45,
     width: 464,
     height: 44,
     color: '#0F172A',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   subtitle_y63e53: {
     position: 'absolute',
     left: 40,
-    top: 104,
+    top: 100,
     width: 464,
     height: 56,
     color: '#64748B',
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   action_7xryh4: {
     position: 'absolute',
     left: 40,
-    top: 200,
+    top: 177,
     width: 140,
     height: 46,
     alignItems: 'center',
